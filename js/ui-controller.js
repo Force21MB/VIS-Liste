@@ -51,7 +51,7 @@ function initDOMElements() {
  */
 function extractBezirke(items) {
     const uniqueBezirke = [...new Set(items
-        .map(item => item.fields.Bezirk)
+        .map(item => item.fields.bezirk)
         .filter(bezirk => bezirk)
     )];
     
@@ -106,13 +106,13 @@ function populateTable(items) {
         const row = document.createElement('tr');
         
         row.innerHTML = `
-            <td>${item.fields.SMNr || ''}</td>
-            <td>${item.fields.Aufgrabungsort || ''}</td>
-            <td>${item.fields.Bezirk || ''}</td>
-            <td>${dataService.dateUtils.formatDate(item.fields.AufgrabungEingereicht)}</td>
-            <td>${dataService.dateUtils.formatDate(item.fields.ZeitraumVon)}</td>
-            <td>${dataService.dateUtils.formatDate(item.fields.ZeitraumBis)}</td>
-            <td>${item.fields.VISNr || ''}</td>
+            <td>${item.fields.smnr || ''}</td>
+            <td>${item.fields.aufgrabungsort || ''}</td>
+            <td>${item.fields.bezirk || ''}</td>
+            <td>${dataService.dateUtils.formatDate(item.fields.aufgrabungeingereicht)}</td>
+            <td>${dataService.dateUtils.formatDate(item.fields.zeitraumvon)}</td>
+            <td>${dataService.dateUtils.formatDate(item.fields.zeitraumbis)}</td>
+            <td>${item.fields.visnr || ''}</td>
             <td>
                 <button class="btn" style="padding: 6px 12px;" data-id="${item.id}">Bearbeiten</button>
             </td>
@@ -152,23 +152,23 @@ function showForm(item) {
         visForm.dataset.editId = item.id;
         
         // Formulardaten füllen
-        document.getElementById('sm-nr').value = item.fields.SMNr || '';
+        document.getElementById('sm-nr').value = item.fields.smnr || '';
         document.getElementById('sm-nr').readOnly = true; // Im Bearbeitungsmodus nicht änderbar
-        document.getElementById('aufgrabungsort').value = item.fields.Aufgrabungsort || '';
-        document.getElementById('bezirk').value = item.fields.Bezirk || '';
+        document.getElementById('aufgrabungsort').value = item.fields.aufgrabungsort || '';
+        document.getElementById('bezirk').value = item.fields.bezirk || '';
         
         // Datumsfelder füllen
-        setDateField('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht', item.fields.AufgrabungEingereicht);
-        setDateField('zeitraum-von', 'chk-zeitraum-von', item.fields.ZeitraumVon);
-        setDateField('zeitraum-bis', 'chk-zeitraum-bis', item.fields.ZeitraumBis);
-        setDateField('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt', item.fields.DatumTiefbauErledigt);
+        setDateField('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht', item.fields.aufgrabungeingereicht);
+        setDateField('zeitraum-von', 'chk-zeitraum-von', item.fields.zeitraumvon);
+        setDateField('zeitraum-bis', 'chk-zeitraum-bis', item.fields.zeitraumbis);
+        setDateField('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt', item.fields.datumtiefbauerledigt);
         
         // Weitere Felder
-        document.getElementById('vis-nr').value = item.fields.VISNr || '';
-        document.getElementById('tk-nr').value = item.fields.TKNr || '';
-        document.getElementById('tiefbau-firma').value = item.fields.TiefbauFirma || '';
-        document.getElementById('bemerkung').value = item.fields.Bemerkung || '';
-        document.getElementById('mitarbeiter').value = item.fields.Mitarbeiter || '';
+        document.getElementById('vis-nr').value = item.fields.visnr || '';
+        document.getElementById('tk-nr').value = item.fields.tknr || '';
+        document.getElementById('tiefbau-firma').value = item.fields.tiefbaufirma || '';
+        document.getElementById('bemerkung').value = item.fields.bemerkung || '';
+        document.getElementById('mitarbeiter').value = item.fields.mitarbeiter || '';
     } else {
         // Hinzufügemodus
         document.getElementById('form-title').textContent = 'Neue Maßnahme hinzufügen';
@@ -214,17 +214,17 @@ function collectFormData() {
     };
     
     // Datumsfelder sammeln
-    formData.AufgrabungEingereicht = getDateFieldValue('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht');
-    formData.ZeitraumVon = getDateFieldValue('zeitraum-von', 'chk-zeitraum-von');
-    formData.ZeitraumBis = getDateFieldValue('zeitraum-bis', 'chk-zeitraum-bis');
-    formData.DatumTiefbauErledigt = getDateFieldValue('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt');
+    formData.aufgrabungeingereicht = getDateFieldValue('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht');
+    formData.zeitraumvon = getDateFieldValue('zeitraum-von', 'chk-zeitraum-von');
+    formData.zeitraumbis = getDateFieldValue('zeitraum-bis', 'chk-zeitraum-bis');
+    formData.datumtiefbauerledigt = getDateFieldValue('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt');
     
     // Weitere Felder sammeln
-    formData.VISNr = document.getElementById('vis-nr').value;
-    formData.TKNr = document.getElementById('tk-nr').value;
-    formData.TiefbauFirma = document.getElementById('tiefbau-firma').value;
-    formData.Bemerkung = document.getElementById('bemerkung').value;
-    formData.Mitarbeiter = document.getElementById('mitarbeiter').value;
+    formData.visnr = document.getElementById('vis-nr').value;
+    formData.tknr = document.getElementById('tk-nr').value;
+    formData.tiefbaufirma = document.getElementById('tiefbau-firma').value;
+    formData.bemerkung = document.getElementById('bemerkung').value;
+    formData.mitarbeiter = document.getElementById('mitarbeiter').value;
     
     return formData;
 }
