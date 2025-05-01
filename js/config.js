@@ -18,16 +18,16 @@ const CONFIG = {
         'Mülheim'
     ],
     COLUMN_MAPPING: {
-        sm_nr: 'sm_nr',
+        sm_nr: 'smnr',
         aufgrabungsort: 'aufgrabungsort',
         bezirk: 'bezirk',
-        aufgrabung_eingereicht: 'aufgrabung_eingereicht',
-        zeitraum_von: 'zeitraum_von',
-        zeitraum_bis: 'zeitraum-bis',
-        vis_Nr: 'vis_Nr',
-        tk_Nr: 'tk_Nr',
-        datum_tiefbau_erledigt: 'datum_tiefbau_erledigt',
-        tiefbau_firma: 'tiefbau_firma',
+        aufgrabung_eingereicht: 'aufgrabungeingereicht',
+        zeitraum_von: 'zeitraumvon',
+        zeitraum_bis: 'zeitraumbis',
+        vis_Nr: 'visNr',
+        tk_Nr: 'tkNr',
+        datum_tiefbau_erledigt: 'datumtiefbauerledigt',
+        tiefbau_firma: 'tiefbaufirma',
         mitarbeiter: 'mitarbeiter',
         bemerkung: 'bemerkung'
     }
