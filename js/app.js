@@ -69,7 +69,7 @@ function setupEventListeners() {
         try {
             // Pflichtfelder prüfen
             const formData = uiController.collectFormData();
-            if (!formData.SMNr || !formData.Aufgrabungsort) {
+            if (!formData.smnr || !formData.aufgrabungsort) {
                 uiController.showDialog('Fehler', 'Bitte füllen Sie alle Pflichtfelder aus (SM Nr und Aufgrabungsort).');
                 return;
             }
