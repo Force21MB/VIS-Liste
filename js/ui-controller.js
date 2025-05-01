@@ -148,7 +148,7 @@ function showForm(item) {
     // Formular-Titel setzen
     if (item) {
         // Bearbeitungsmodus
-        document.getElementById('form-title').textContent = `Maßnahme bearbeiten: ${item.fields.SMNr}`;
+        document.getElementById('form-title').textContent = `Maßnahme bearbeiten: ${item.fields.smnr}`;
         visForm.dataset.editId = item.id;
         
         // Formulardaten füllen
@@ -208,9 +208,18 @@ function setDateField(dateFieldId, checkboxId, dateValue) {
 function collectFormData() {
     // Formulardaten sammeln
     const formData = {
-        SMNr: document.getElementById('sm-nr').value,
-        Aufgrabungsort: document.getElementById('aufgrabungsort').value,
-        Bezirk: document.getElementById('bezirk').value
+    smnr: document.getElementById('sm-nr').value,
+    aufgrabungsort: document.getElementById('aufgrabungsort').value,
+    bezirk: document.getElementById('bezirk').value,
+    aufgrabungeingereicht: getDateFieldValue('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht'),
+    zeitraumvon: getDateFieldValue('zeitraum-von', 'chk-zeitraum-von'),
+    zeitraumbis: getDateFieldValue('zeitraum-bis', 'chk-zeitraum-bis'),
+    visnr: document.getElementById('vis-nr').value,
+    tknr: document.getElementById('tk-nr').value,
+    datumtiefbauerledigt: getDateFieldValue('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt'),
+    tiefbaufirma: document.getElementById('tiefbau-firma').value,
+    bemerkung: document.getElementById('bemerkung').value,
+    mitarbeiter: document.getElementById('mitarbeiter').value
     };
     
     // Datumsfelder sammeln
