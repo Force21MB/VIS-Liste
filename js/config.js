@@ -18,9 +18,6 @@ const CONFIG = {
         'Kalk',
         'Mülheim'
     ],
-
-    
-    // Tabellenspalten-Mapping
     COLUMN_MAPPING: {
         sm_nr: 'sm_nr',
         aufgrabungsort: 'aufgrabungsort',
