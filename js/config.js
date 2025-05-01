@@ -5,7 +5,7 @@
 // Konfiguration für die Verbindung zur API
 const CONFIG = {
     // URL zum Apps Script Web App
-    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzLc5i7z9NPwA_EUIsqBdIKneE6qL7th9O0XIXVei6mVTHg6syk0oJCXqxIy4WyuDw53w/exec',
+    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxp5Ox0-LVzz--czwP_tyHrMdYz3xQmklOrzCiSI1uTLiOhFxR15prmjr3n4E2B5_iM2g/exec',
     
     // Kölner Bezirke für die Dropdown-Felder
     COLOGNE_DISTRICTS: [
