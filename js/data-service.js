@@ -91,11 +91,11 @@ function searchItems(searchTerm, district) {
 
     const filteredItems = visItems.filter(item => {
         const matchesSearch = !searchTerm ||
-            (item.fields.SMNr && item.fields.SMNr.toLowerCase().includes(searchTerm)) ||
-            (item.fields.Aufgrabungsort && item.fields.Aufgrabungsort.toLowerCase().includes(searchTerm)) ||
-            (item.fields.VISNr && item.fields.VISNr.toLowerCase().includes(searchTerm));
+            (item.fields.smnr && item.fields.smnr.toLowerCase().includes(searchTerm)) ||
+            (item.fields.aufgrabungsort && item.fields.aufgrabungsort.toLowerCase().includes(searchTerm)) ||
+            (item.fields.visnr && item.fields.visr.toLowerCase().includes(searchTerm));
 
-        const matchesBezirk = !district || item.fields.Bezirk === district;
+        const matchesBezirk = !district || item.fields.bezirk === district;
         return matchesSearch && matchesBezirk;
     });
 
