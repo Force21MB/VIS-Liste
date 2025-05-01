@@ -4,35 +4,25 @@
 
 // Konfiguration für die Verbindung zur API
 const CONFIG = {
-    // URL zum Apps Script Web App
-    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxp5Ox0-LVzz--czwP_tyHrMdYz3xQmklOrzCiSI1uTLiOhFxR15prmjr3n4E2B5_iM2g/exec',
-    
-    // Kölner Bezirke für die Dropdown-Felder
-    COLOGNE_DISTRICTS: [
-        'Innenstadt',
-        'Rodenkirchen',
-        'Lindenthal',
-        'Ehrenfeld',
-        'Nippes',
-        'Chorweiler',
-        'Porz',
-        'Kalk',
-        'Mülheim'
-    ],
+    SUPABASE_URL: 'https://hqgmepblrpjvqctegfbj.supabase.co',
+    SUPABASE_API_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxZ21lcGJscnBqdnFjdGVnZmJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYwOTY2ODYsImV4cCI6MjA2MTY3MjY4Nn0.qY2-fJHgAl_xtDvTdaODrwT74lkW8cRybEwQIi6nLEM',
+    TABLE_NAME: 'vis_liste',
+    COLOGNE_DISTRICTS: ['Innenstadt', 'Rodenkirchen', 'Lindenthal', 'Ehrenfeld', 'Nippes', 'Chorweiler', 'Porz', 'Kalk', 'Mülheim'],
+};
     
     // Tabellenspalten-Mapping
     COLUMN_MAPPING: {
-        SMNr: 'SMNr',
-        Aufgrabungsort: 'Aufgrabungsort',
-        Bezirk: 'Bezirk',
-        AufgrabungEingereicht: 'AufgrabungEingereicht',
-        ZeitraumVon: 'ZeitraumVon',
-        ZeitraumBis: 'ZeitraumBis',
-        VISNr: 'VISNr',
-        TKNr: 'TKNr',
-        DatumTiefbauErledigt: 'DatumTiefbauErledigt',
-        TiefbauFirma: 'TiefbauFirma',
-        Mitarbeiter: 'Mitarbeiter',
-        Bemerkung: 'Bemerkung'
+        sm_nr: 'sm_nr',
+        aufgrabungsort: 'aufgrabungsort',
+        bezirk: 'bezirk',
+        aufgrabung_eingereicht: 'aufgrabung_eingereicht',
+        zeitraum_von: 'zeitraum_von',
+        zeitraum_bis: 'zeitraum-bis',
+        vis_Nr: 'vis_Nr',
+        tk_Nr: 'tk_Nr',
+        datum_tiefbau_erledigt: 'datum_tiefbau-erledigt',
+        tiefbau_firma: 'tiefbau_firma',
+        mitarbeiter: 'mitarbeiter',
+        bemerkung: 'bemerkung'
     }
 };
