@@ -93,7 +93,7 @@ function searchItems(searchTerm, district) {
         const matchesSearch = !searchTerm ||
             (item.fields.smnr && item.fields.smnr.toLowerCase().includes(searchTerm)) ||
             (item.fields.aufgrabungsort && item.fields.aufgrabungsort.toLowerCase().includes(searchTerm)) ||
-            (item.fields.visnr && item.fields.visr.toLowerCase().includes(searchTerm));
+            (item.fields.visnr && item.fields.visnr.toLowerCase().includes(searchTerm));
 
         const matchesBezirk = !district || item.fields.bezirk === district;
         return matchesSearch && matchesBezirk;
