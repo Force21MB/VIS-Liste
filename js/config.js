@@ -23,7 +23,7 @@ const CONFIG = {
         bezirk: 'bezirk',
         aufgrabung_eingereicht: 'aufgrabung_eingereicht',
         zeitraum_von: 'zeitraum_von',
-        zeitraum_bis: 'zeitraum_bis',
+        zeitraum_bis: 'zeitraum-bis',
         vis_Nr: 'vis_Nr',
         tk_Nr: 'tk_Nr',
         datum_tiefbau_erledigt: 'datum_tiefbau_erledigt',
