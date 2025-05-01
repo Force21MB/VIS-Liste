@@ -17,8 +17,8 @@ const CONFIG = {
         'Porz',
         'Kalk',
         'Mülheim'
-    ]
-};
+    ],
+
     
     // Tabellenspalten-Mapping
     COLUMN_MAPPING: {
