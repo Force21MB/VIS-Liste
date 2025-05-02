@@ -6,7 +6,7 @@
 // DOM-Elemente
 let navHome, navCologne, btnGoToCologne, homeContent, cologneContent;
 let btnAddNew, dataForm, btnCancel, visForm, searchInput, filterBezirk;
-let visTable, bezirkSelect, statusContainer, statusMessage, statusIcon;
+let visTable, bezirkSelect, statusContainer, statusMessage, statusIcon, gewerkSelect;
 let dialogOverlay, dialogTitle, dialogBody, dialogClose, dialogOk;
 
 /**
@@ -31,6 +31,7 @@ function initDOMElements() {
     filterBezirk = document.getElementById('filter-bezirk');
     visTable = document.getElementById('vis-table');
     bezirkSelect = document.getElementById('bezirk');
+    gewerkSelect = document.getElementById('gewerk');
     
     // Status-Elemente
     statusContainer = document.getElementById('status-container');
@@ -65,6 +66,7 @@ function populateTable(items) {
             <td>${dataService.dateUtils.formatDate(item.fields.zeitraumvon)}</td>
            <td>${dataService.dateUtils.formatDate(item.fields.zeitraumbis)}</td>
             <td>${item.fields.visnr || ''}</td>
+            <td>${item.fields.gewerk || ''}</td>
             <td>
               <button class="btn btn-edit" style="padding: 6px 12px;" data-id="${item.id}">Bearbeiten</button>
            </td>
@@ -113,7 +115,17 @@ function populateBezirke(bezirke) {
         }
     });
 }
-
+function populateGewerk() {
+    const gewerkSelect = document.getElementById('gewerk');
+    gewerkSelect.innerHTML = '<option value="">Bitte wählen</option>';
+    
+    CONFIG.GEWERK_OPTIONS.forEach(gewerk => {
+        const option = document.createElement('option');
+        option.value = gewerk;
+        option.textContent = gewerk;
+        gewerkSelect.appendChild(option);
+    });
+}
 /**
  * Füllt die Tabelle mit Daten
  * @param {Array} items - Die anzuzeigenden Datenelemente
@@ -159,6 +171,7 @@ function showFormInPopup(item) {
         document.getElementById('tiefbau-firma').value = item.fields.tiefbaufirma || '';
         document.getElementById('bemerkung').value = item.fields.bemerkung || '';
         document.getElementById('mitarbeiter').value = item.fields.mitarbeiter || '';
+        document.getElementById('gewerk').value = item.fields.gewerk || '';
     } else {
         // Hinzufügemodus
         dialogTitle.textContent = 'Neue Maßnahme hinzufügen';
@@ -252,7 +265,7 @@ function collectFormData() {
     formData.tiefbaufirma = document.getElementById('tiefbau-firma').value;
     formData.bemerkung = document.getElementById('bemerkung').value;
     formData.mitarbeiter = document.getElementById('mitarbeiter').value;
-    
+    formData.gewerk = document.getElementById('gewerk').value;
     return formData;
 }
 
