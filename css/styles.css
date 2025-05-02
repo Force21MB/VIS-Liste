@@ -483,8 +483,8 @@ footer {
 .dialog-content {
     background-color: white;
     border-radius: 8px;
-    width: 90%;
-    max-width: 500px;
+    width: 95%;
+    max-width: 800px;
     max-height: 90vh;
     overflow-y: auto;
     padding: 25px;
@@ -492,7 +492,25 @@ footer {
     transform: translateY(-20px);
     transition: transform 0.3s;
 }
+.dialog-content .data-form {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
 
+.dialog-content .form-title {
+    display: none;  /* Titel wird bereits im Dialog-Header angezeigt */
+}
+
+.dialog-form .action-buttons {
+    margin-top: 20px;
+}
+
+/* Bei großem Formular-Dialog die Buttons ausblenden */
+.dialog-overlay.form-mode .dialog-buttons {
+    display: none;
+}
 .dialog-overlay.active .dialog-content {
     transform: translateY(0);
 }
