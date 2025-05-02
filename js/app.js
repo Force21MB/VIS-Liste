@@ -44,11 +44,17 @@ function setupEventListeners() {
         uiController.showColognePage();
     });
     
-    document.getElementById('btn-go-to-cologne').addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log('Zur Stadt Köln Button geklickt');
-        uiController.showColognePage();
-    });
+    document.getElementById('btn-go-to-cologne').addEventListener('click', async function(e) {
+    e.preventDefault();
+    console.log('Zur Stadt Köln Button geklickt');
+
+    // Lade Daten vor dem Anzeigen
+    if (!dataService.getAllItems().length) {
+        await dataService.loadDataFromSheet();
+    }
+
+    uiController.showColognePage();
+});
     
     // Formular-Buttons
     document.getElementById('btn-add-new').addEventListener('click', function() {
