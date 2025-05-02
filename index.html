@@ -39,7 +39,7 @@
                 
                 <div class="card">
                     <div class="card-title">Schnellzugriff</div>
-                    <p>Über diese Anwendung können Sie auf die Google Sheets Tabelle "Mitarbeiter" zugreifen und diese verwalten. Die Benutzeroberfläche bietet verschiedene Funktionen für eine effiziente Datenverarbeitung:</p>
+                    <p>Über diese Anwendung können Sie auf die Supabase-Datenbank zugreifen und diese verwalten. Die Benutzeroberfläche bietet verschiedene Funktionen für eine effiziente Datenverarbeitung:</p>
                     <ul style="margin-left: 20px; margin-top: 10px;">
                         <li>Anzeige aller Aufgrabungen und Maßnahmen</li>
                         <li>Filterung nach Bezirk und anderen Kriterien</li>
@@ -79,7 +79,7 @@
                                     <th>Zeitraum von</th>
                                     <th>Zeitraum bis</th>
                                     <th>VIS Nr</th>
-                                     <th>Gewerk</th> 
+                                    <th>Gewerk</th>
                                     <th>Aktionen</th>
                                 </tr>
                             </thead>
@@ -182,35 +182,36 @@
                             </div>
                         </div>
 
-                            <div class="form-row">
-    <div class="form-col">
-        <div class="form-group">
-            <label for="mitarbeiter">Mitarbeiter</label>
-            <input type="text" id="mitarbeiter" name="mitarbeiter">
-        </div>
-    </div>
-    <div class="form-col">
-        <div class="form-group">
-            <label for="gewerk">Gewerk</label>
-            <select id="gewerk" name="gewerk">
-                <option value="">Bitte wählen</option>
-                <!-- Wird dynamisch gefüllt -->
-            </select>
-        </div>
-    </div>
-</div>
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="mitarbeiter">Mitarbeiter</label>
+                                    <input type="text" id="mitarbeiter" name="mitarbeiter">
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gewerk">Gewerk</label>
+                                    <select id="gewerk" name="gewerk">
+                                        <option value="">Bitte wählen</option>
+                                        <!-- Wird dynamisch gefüllt -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
-<div class="form-row">
-    <div class="form-col">
-        <div class="form-group">
-            <label for="bemerkung">Bemerkung</label>
-            <textarea id="bemerkung" name="bemerkung" rows="3"></textarea>
-        </div>
-    </div>
-    <div class="form-col">
-        <!-- Leere Spalte für Ausrichtung -->
-    </div>
-</div>
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="bemerkung">Bemerkung</label>
+                                    <textarea id="bemerkung" name="bemerkung" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <!-- Leere Spalte für die Ausrichtung -->
+                            </div>
+                        </div>
+
                         <div class="action-buttons">
                             <button type="button" class="btn btn-secondary" id="btn-cancel">Abbrechen</button>
                             <button type="submit" class="btn">Speichern</button>
@@ -221,37 +222,37 @@
         </div>
     </main>
 
- <footer>
-    <div class="container">
-        <div class="footer-bottom">
-            <p>&copy; 2025 Deutsche Telekom AG. Alle Rechte vorbehalten.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deutsche Telekom AG. Alle Rechte vorbehalten.</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- Dialog für Meldungen und Formulare -->
-<div class="dialog-overlay" id="dialog-overlay">
-    <div class="dialog-content">
-        <div class="dialog-header">
-            <h3 class="dialog-title" id="dialog-title">Information</h3>
-            <button class="dialog-close" id="dialog-close">&times;</button>
-        </div>
-        <div class="dialog-body" id="dialog-body">
-            <!-- Inhalt wird dynamisch eingefügt -->
-        </div>
-        <div id="dialog-form-container" style="display: none;">
-            <!-- Das Formular wird dynamisch hierhin verschoben -->
-        </div>
-        <div class="action-buttons" id="dialog-buttons">
-            <button class="btn" id="dialog-ok">OK</button>
+    <!-- Dialog für Meldungen und Formulare -->
+    <div class="dialog-overlay" id="dialog-overlay">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3 class="dialog-title" id="dialog-title">Information</h3>
+                <button class="dialog-close" id="dialog-close">&times;</button>
+            </div>
+            <div class="dialog-body" id="dialog-body">
+                <!-- Inhalt wird dynamisch eingefügt -->
+            </div>
+            <div id="dialog-form-container" style="display: none;">
+                <!-- Das Formular wird dynamisch hierhin verschoben -->
+            </div>
+            <div class="action-buttons" id="dialog-buttons">
+                <button class="btn" id="dialog-ok">OK</button>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- JavaScript einbinden -->
-    <script  src="js/config.js"></script>
-    <script  src="js/data-service.js"></script>
-    <script  src="js/ui-controller.js"></script>
-    <script  src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/data-service.js"></script>
+    <script src="js/ui-controller.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
