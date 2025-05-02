@@ -49,7 +49,8 @@ async function loadDataFromSheet() {
         tiefbaufirma: item.tiefbaufirma,
         mitarbeiter: item.mitarbeiter,
         datumtiefbauerledigt: item.datumtiefbauerledigt,
-        bemerkung: item.bemerkung
+        bemerkung: item.bemerkung,
+        gewerk: item.gewerk
     }
 }));
 
