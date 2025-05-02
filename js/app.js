@@ -104,5 +104,17 @@ function setupEventListeners() {
     document.getElementById('dialog-close').addEventListener('click', uiController.closeDialog);
     document.getElementById('dialog-ok').addEventListener('click', uiController.closeDialog);
     
+   // Globale Event-Delegation für Bearbeiten-Buttons
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.matches('.btn-edit')) {
+            const id = e.target.getAttribute('data-id');
+            const item = dataService.getItemById(id);
+            if (item) {
+                uiController.showForm(item);
+            } else {
+                uiController.showDialog('Fehler', 'Eintrag nicht gefunden (ID).');
+            }
+        }
+    }); 
     console.log('Alle Event-Listener wurden eingerichtet');
 }
