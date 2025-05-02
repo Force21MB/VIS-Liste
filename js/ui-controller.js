@@ -119,7 +119,9 @@ function populateBezirke(bezirke) {
  * @param {Array} items - Die anzuzeigenden Datenelemente
  */
 
-
+function showForm(item) {
+    showFormInPopup(item);
+}
 /**
  * Zeigt das Formular in einem Popup-Dialog an
  * @param {Object|null} item - Zu bearbeitendes Element (null für neues Element)
@@ -272,7 +274,7 @@ function getDateFieldValue(dateFieldId, checkboxId) {
  * Formular ausblenden
  */
 function hideForm() {
-    dataForm.style.display = 'none';
+    closeFormPopup();
 }
 
 /**
@@ -384,7 +386,13 @@ function showDialog(title, message) {
 }
 
 function closeDialog() {
-    dialogOverlay.classList.remove('active');
+    // Wenn wir uns im Formular-Modus befinden, Formular korrekt schließen
+    if (dialogOverlay.classList.contains('form-mode')) {
+        closeFormPopup();
+    } else {
+        // Normaler Dialog-Schließ-Vorgang
+        dialogOverlay.classList.remove('active');
+    }
 }
 
 // Öffentliche API des UI-Controllers
