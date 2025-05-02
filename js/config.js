@@ -30,5 +30,15 @@ const CONFIG = {
         tiefbaufirma: 'tiefbaufirma',
         mitarbeiter: 'mitarbeiter',
         bemerkung: 'bemerkung'
+        gewerk: 'gewerk'
     }
+GEWERK_OPTIONS: [
+        'Breitband',
+        'Ü-Wege',
+        'Störung',
+        'Betrieb',
+        'APL',
+        'ZFSKKA',
+        'ÖTel'
+    ]
 };
