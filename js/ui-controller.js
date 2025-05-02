@@ -44,7 +44,34 @@ function initDOMElements() {
     dialogClose = document.getElementById('dialog-close');
     dialogOk = document.getElementById('dialog-ok');
 }
+function populateTable(items) {
+    const tableBody = visTable.querySelector('tbody');
+    tableBody.innerHTML = '';
 
+    if (items.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = '<td colspan="8" style="text-align: center;">Keine Daten gefunden</td>';
+        tableBody.appendChild(row);
+        return;
+    }
+
+    items.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.fields.smnr || ''}</td>
+            <td>${item.fields.aufgrabungsort || ''}</td>
+            <td>${item.fields.bezirk || ''}</td>
+            <td>${dataService.dateUtils.formatDate(item.fields.aufgrabungeingereicht)}</td>
+            <td>${dataService.dateUtils.formatDate(item.fields.zeitraumvon)}</td>
+            <td>${dataService.dateUtils.formatDate(item.fields.zeitraumbis)}</td>
+            <td>${item.fields.visnr || ''}</td>
+            <td>
+                <button class="btn btn-edit" data-id="${item.id}">Bearbeiten</button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
 /**
  * Extrahiert einzigartige Bezirke aus den Daten und füllt die Dropdowns
  * @param {Array} items - Die Datenelemente
