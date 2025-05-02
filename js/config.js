@@ -31,7 +31,7 @@ const CONFIG = {
         mitarbeiter: 'mitarbeiter',
         bemerkung: 'bemerkung',
         gewerk: 'gewerk'
-    }
+    },
 GEWERK_OPTIONS: [
         'Breitband',
         'Ü-Wege',
