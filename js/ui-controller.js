@@ -141,7 +141,7 @@ function populateTable(items) {
             <td>${dataService.dateUtils.formatDate(item.fields.zeitraumbis)}</td>
             <td>${item.fields.visnr || ''}</td>
             <td>
-                <button class="btn" style="padding: 6px 12px;" data-id="${item.id}">Bearbeiten</button>
+                <button class="btn btn-edit" data-id="${item.id}">Bearbeiten</button>
             </td>
         `;
         
