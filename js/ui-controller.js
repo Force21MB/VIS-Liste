@@ -307,13 +307,10 @@ function showHomePage() {
 function showColognePage() {
     homeContent.style.display = 'none';
     cologneContent.style.display = 'block';
-    
     navHome.classList.remove('active');
     navCologne.classList.add('active');
-    
-    // Daten laden, wenn noch nicht geschehen
-    const items = dataService.getAllItems();
-    if (!items || items.length === 0) {
+
+    if (dataService.getAllItems().length === 0) {
         dataService.loadDataFromSheet().catch(error => {
             console.error('Fehler beim Laden der Daten:', error);
         });
