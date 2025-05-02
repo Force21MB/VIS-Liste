@@ -4,7 +4,7 @@
  */
 
 // Initialisierung beim Laden der Seite
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('Anwendung wird initialisiert');
     
     // DOM-Elemente initialisieren
