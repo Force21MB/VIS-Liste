@@ -125,7 +125,7 @@ function getAllItems() {
 }
 
 function getItemById(id) {
-    return visItems.find(item => item.id === id) || null;
+    return visItems.find(item => item.id === Number(id)) || null;
 }
 
 const dateUtils = {
