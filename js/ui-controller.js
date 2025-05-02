@@ -121,11 +121,11 @@ function populateBezirke(bezirke) {
 
 
 /**
- * Zeigt das Formular zum Hinzufügen oder Bearbeiten eines Datensatzes an
+ * Zeigt das Formular in einem Popup-Dialog an
  * @param {Object|null} item - Zu bearbeitendes Element (null für neues Element)
  */
-function showForm(item) {
-    // Formular zurücksetzen
+function showFormInPopup(item) {
+    // Formular zurücksetzen und vorbereiten - gleiche Logik wie in showForm()
     visForm.reset();
     
     // Alle Date-Checkboxen deaktivieren
@@ -133,10 +133,10 @@ function showForm(item) {
         checkbox.checked = false;
     });
     
-    // Formular-Titel setzen
+    // Dialog-Titel setzen basierend auf Bearbeitungs- oder Erstellungsmodus
     if (item) {
         // Bearbeitungsmodus
-        document.getElementById('form-title').textContent = `Maßnahme bearbeiten: ${item.fields.smnr}`;
+        dialogTitle.textContent = `Maßnahme bearbeiten: ${item.fields.smnr}`;
         visForm.dataset.editId = item.id;
         
         // Formulardaten füllen
@@ -159,18 +159,46 @@ function showForm(item) {
         document.getElementById('mitarbeiter').value = item.fields.mitarbeiter || '';
     } else {
         // Hinzufügemodus
-        document.getElementById('form-title').textContent = 'Neue Maßnahme hinzufügen';
+        dialogTitle.textContent = 'Neue Maßnahme hinzufügen';
         visForm.dataset.editId = '';
         document.getElementById('sm-nr').readOnly = false;
     }
     
-    // Formular anzeigen
-    dataForm.style.display = 'block';
+    // Dialog-Körper ausblenden, Formular-Container einblenden
+    document.getElementById('dialog-body').style.display = 'none';
+    document.getElementById('dialog-form-container').style.display = 'block';
+    document.getElementById('dialog-buttons').style.display = 'none';
     
-    // Zu dem Formular scrollen
-    dataForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Formular in den Dialog verschieben
+    const formContainer = document.getElementById('dialog-form-container');
+    formContainer.appendChild(dataForm);
+    
+    // Formular anzeigen und Dialog öffnen
+    dataForm.style.display = 'block';
+    dialogOverlay.classList.add('active');
+    dialogOverlay.classList.add('form-mode');
 }
 
+/**
+ * Schließt das Formular-Popup und setzt den Dialog zurück
+ */
+function closeFormPopup() {
+    // Dialog schließen
+    dialogOverlay.classList.remove('active');
+    dialogOverlay.classList.remove('form-mode');
+    
+    // Warten bis Animation abgeschlossen ist
+    setTimeout(() => {
+        // Dialog zurücksetzen
+        document.getElementById('dialog-body').style.display = 'block';
+        document.getElementById('dialog-form-container').style.display = 'none';
+        document.getElementById('dialog-buttons').style.display = 'flex';
+        
+        // Formular zurück in den ursprünglichen Container verschieben
+        document.querySelector('.cologne-container').appendChild(dataForm);
+        dataForm.style.display = 'none';
+    }, 300);
+}
 /**
  * Datumsfeld mit Wert befüllen und Checkbox aktivieren
  * @param {string} dateFieldId - ID des Datumsfeldes
