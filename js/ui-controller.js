@@ -227,7 +227,7 @@ function setDateField(dateFieldId, dateValue) {
     } else {
         dateField.value = '';
     }
-
+}
 /**
  * Formulardaten sammeln
  * @returns {Object} Gesammelte Formulardaten
@@ -248,12 +248,6 @@ datumtiefbauerledigt: getDateFieldValue('datum-tiefbau-erledigt'),
     bemerkung: document.getElementById('bemerkung').value,
     mitarbeiter: document.getElementById('mitarbeiter').value
     };
-    
-    // Datumsfelder sammeln
-    formData.aufgrabungeingereicht = getDateFieldValue('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht');
-    formData.zeitraumvon = getDateFieldValue('zeitraum-von', 'chk-zeitraum-von');
-    formData.zeitraumbis = getDateFieldValue('zeitraum-bis', 'chk-zeitraum-bis');
-    formData.datumtiefbauerledigt = getDateFieldValue('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt');
     
     // Weitere Felder sammeln
     formData.visnr = document.getElementById('vis-nr').value;
