@@ -242,21 +242,24 @@
         </div>
     </footer>
 
-    <!-- Dialog für Meldungen -->
-    <div class="dialog-overlay" id="dialog-overlay">
-        <div class="dialog-content">
-            <div class="dialog-header">
-                <h3 class="dialog-title" id="dialog-title">Information</h3>
-                <button class="dialog-close" id="dialog-close">&times;</button>
-            </div>
-            <div class="dialog-body" id="dialog-body">
-                <!-- Inhalt wird dynamisch eingefügt -->
-            </div>
-            <div class="action-buttons">
-                <button class="btn" id="dialog-ok">OK</button>
-            </div>
+<!-- Dialog für Meldungen und Formulare -->
+<div class="dialog-overlay" id="dialog-overlay">
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <h3 class="dialog-title" id="dialog-title">Information</h3>
+            <button class="dialog-close" id="dialog-close">&times;</button>
+        </div>
+        <div class="dialog-body" id="dialog-body">
+            <!-- Inhalt wird dynamisch eingefügt -->
+        </div>
+        <div id="dialog-form-container" style="display: none;">
+            <!-- Das Formular wird dynamisch hierhin verschoben -->
+        </div>
+        <div class="action-buttons" id="dialog-buttons">
+            <button class="btn" id="dialog-ok">OK</button>
         </div>
     </div>
+</div>
 
     <!-- JavaScript einbinden -->
     <script src="js/config.js"></script>
