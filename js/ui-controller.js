@@ -430,5 +430,6 @@ const uiController = {
     updateStatusLoading,
     updateStatusInfo,
     showDialog,
+    populateGewerk,
     closeDialog
 };
