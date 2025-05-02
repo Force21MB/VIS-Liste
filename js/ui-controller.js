@@ -160,10 +160,10 @@ function showFormInPopup(item) {
         document.getElementById('bezirk').value = item.fields.bezirk || '';
         
         // Datumsfelder füllen
-        setDateField('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht', item.fields.aufgrabungeingereicht);
-        setDateField('zeitraum-von', 'chk-zeitraum-von', item.fields.zeitraumvon);
-        setDateField('zeitraum-bis', 'chk-zeitraum-bis', item.fields.zeitraumbis);
-        setDateField('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt', item.fields.datumtiefbauerledigt);
+        setDateField('aufgrabung-eingereicht', item.fields.aufgrabungeingereicht);
+        setDateField('zeitraum-von', item.fields.zeitraumvon);
+        setDateField('zeitraum-bis', item.fields.zeitraumbis);
+        setDateField('datum-tiefbau-erledigt', item.fields.datumtiefbauerledigt);
         
         // Weitere Felder
         document.getElementById('vis-nr').value = item.fields.visnr || '';
@@ -220,14 +220,11 @@ function closeFormPopup() {
  * @param {string} checkboxId - ID der Checkbox
  * @param {string} dateValue - Datumswert
  */
-function setDateField(dateFieldId, checkboxId, dateValue) {
+function setDateField(dateFieldId, dateValue) {
     if (dateValue) {
-        document.getElementById(checkboxId).checked = true;
-        document.getElementById(dateFieldId).disabled = false;
         document.getElementById(dateFieldId).value = dataService.dateUtils.formatDateForInput(dateValue);
     } else {
-        document.getElementById(checkboxId).checked = false;
-        document.getElementById(dateFieldId).disabled = true;
+
         document.getElementById(dateFieldId).value = '';
     }
 }
@@ -242,12 +239,12 @@ function collectFormData() {
     smnr: document.getElementById('sm-nr').value,
     aufgrabungsort: document.getElementById('aufgrabungsort').value,
     bezirk: document.getElementById('bezirk').value,
-    aufgrabungeingereicht: getDateFieldValue('aufgrabung-eingereicht', 'chk-aufgrabung-eingereicht'),
-    zeitraumvon: getDateFieldValue('zeitraum-von', 'chk-zeitraum-von'),
-    zeitraumbis: getDateFieldValue('zeitraum-bis', 'chk-zeitraum-bis'),
+aufgrabungeingereicht: getDateFieldValue('aufgrabung-eingereicht'),
+        zeitraumvon: getDateFieldValue('zeitraum-von'),
+        zeitraumbis: getDateFieldValue('zeitraum-bis'),
     visnr: document.getElementById('vis-nr').value,
     tknr: document.getElementById('tk-nr').value,
-    datumtiefbauerledigt: getDateFieldValue('datum-tiefbau-erledigt', 'chk-datum-tiefbau-erledigt'),
+datumtiefbauerledigt: getDateFieldValue('datum-tiefbau-erledigt'),
     tiefbaufirma: document.getElementById('tiefbau-firma').value,
     bemerkung: document.getElementById('bemerkung').value,
     mitarbeiter: document.getElementById('mitarbeiter').value
@@ -275,12 +272,9 @@ function collectFormData() {
  * @param {string} checkboxId - ID der Checkbox
  * @returns {string|null} Datumswert oder null
  */
-function getDateFieldValue(dateFieldId, checkboxId) {
-    const checkbox = document.getElementById(checkboxId);
-    if (checkbox.checked) {
-        return document.getElementById(dateFieldId).value;
-    }
-    return null;
+function getDateFieldValue(dateFieldId) {
+    const value = document.getElementById(dateFieldId).value;
+    return value || null; // Leere Strings als null zurückgeben
 }
 
 /**
@@ -294,22 +288,7 @@ function hideForm() {
  * Initialisiert die DatePicker-Funktionalität
  */
 function setupDateControls() {
-    document.querySelectorAll('.date-control').forEach(control => {
-        const checkbox = control.querySelector('input[type="checkbox"]');
-        const dateInput = control.querySelector('input[type="date"]');
-        
-        // Initial deaktivieren
-        dateInput.disabled = !checkbox.checked;
-        
-        // Event-Listener für Checkbox
-        checkbox.addEventListener('change', function() {
-            dateInput.disabled = !this.checked;
-            if (this.checked && !dateInput.value) {
-                // Aktuelles Datum setzen, wenn aktiviert und leer
-                dateInput.value = new Date().toISOString().split('T')[0];
-            }
-        });
-    });
+
 }
 
 /**
