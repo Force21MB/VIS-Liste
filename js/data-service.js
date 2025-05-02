@@ -36,9 +36,22 @@ async function loadDataFromSheet() {
         console.log('Daten empfangen:', data);
 
         visItems = data.map(item => ({
-            id: item.id,
-            fields: item
-        }));
+    id: item.id,
+    fields: {
+        smnr: item.smnr,
+        aufgrabungsort: item.aufgrabungsort,
+        bezirk: item.bezirk,
+        aufgrabungeingereicht: item.aufgrabungeingereicht,
+        zeitraumvon: item.zeitraumvon,
+        zeitraumbis: item.zeitraumbis,
+        visnr: item.visnr,
+        tknr: item.tknr,
+        tiefbaufirma: item.tiefbaufirma,
+        mitarbeiter: item.mitarbeiter,
+        datumtiefbauerledigt: item.datumtiefbauerledigt,
+        bemerkung: item.bemerkung
+    }
+}));
 
         uiController.extractBezirke(visItems);
         uiController.populateTable(visItems);
