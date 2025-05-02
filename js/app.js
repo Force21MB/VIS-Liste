@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Bezirke zu den Dropdown-Menüs hinzufügen
     uiController.populateBezirke(CONFIG.COLOGNE_DISTRICTS);
     await dataService.loadDataFromSheet();  // <--- DAS FEHLTE
+
+    uiController.populateGewerk();
     // Startseite anzeigen
     uiController.showHomePage();
     
