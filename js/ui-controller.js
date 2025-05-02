@@ -221,13 +221,12 @@ function closeFormPopup() {
  * @param {string} dateValue - Datumswert
  */
 function setDateField(dateFieldId, dateValue) {
+    const dateField = document.getElementById(dateFieldId);
     if (dateValue) {
-        document.getElementById(dateFieldId).value = dataService.dateUtils.formatDateForInput(dateValue);
+        dateField.value = dataService.dateUtils.formatDateForInput(dateValue);
     } else {
-
-        document.getElementById(dateFieldId).value = '';
+        dateField.value = '';
     }
-}
 
 /**
  * Formulardaten sammeln
