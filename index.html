@@ -185,12 +185,6 @@
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label for="mitarbeiter">Mitarbeiter</label>
-                                    <input type="text" id="mitarbeiter" name="mitarbeiter">
-                                </div>
-                            </div>
-                            <div class="form-col">
-                                <div class="form-group">
                                     <label for="gewerk">Gewerk</label>
                                     <select id="gewerk" name="gewerk">
                                         <option value="">Bitte wählen</option>
@@ -198,17 +192,20 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-row">
                             <div class="form-col">
                                 <div class="form-group">
-                                    <label for="bemerkung">Bemerkung</label>
-                                    <textarea id="bemerkung" name="bemerkung" rows="3"></textarea>
+                                    <label for="mitarbeiter">Mitarbeiter</label>
+                                    <input type="text" id="mitarbeiter" name="mitarbeiter">
                                 </div>
                             </div>
-                            <div class="form-col">
-                                <!-- Leere Spalte für die Ausrichtung -->
+                        </div>
+
+                        <div class="form-row bemerkung-row">
+                            <div class="form-col" style="flex: 2;">
+                                <div class="form-group">
+                                    <label for="bemerkung">Bemerkung</label>
+                                    <textarea id="bemerkung" name="bemerkung" rows="4" style="width: 100%;"></textarea>
+                                </div>
                             </div>
                         </div>
 
