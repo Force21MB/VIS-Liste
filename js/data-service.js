@@ -79,7 +79,12 @@ async function saveFormData(formData, itemId) {
             throw new Error('Fehler beim Speichern: ' + response.statusText);
         }
 
-        return await response.json();
+const text = await response.text();
+try {
+    return JSON.parse(text);
+} catch {
+    return {}; // leerer Fallback
+}
     } catch (error) {
         console.error('Fehler beim Speichern der Daten:', error);
         throw error;
