@@ -397,12 +397,15 @@ function closeDialog() {
 
 // Öffentliche API des UI-Controllers
 const uiController = {
+    // Bestehende Funktionen...
     initDOMElements,
     extractBezirke,
     populateBezirke,
     populateTable,
     showForm,
     hideForm,
+    showFormInPopup,  // Neue Funktion
+    closeFormPopup,   // Neue Funktion
     collectFormData,
     filterData,
     showHomePage,
