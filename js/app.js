@@ -66,7 +66,7 @@ function setupEventListeners() {
         console.log('Abbrechen Button geklickt');
         uiController.hideForm();
     });
-    
+
     // Formular absenden
     document.getElementById('vis-form').addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -107,7 +107,10 @@ function setupEventListeners() {
     document.getElementById('filter-bezirk').addEventListener('change', uiController.filterData);
     
     // Dialog
-    document.getElementById('dialog-close').addEventListener('click', uiController.closeDialog);
+    // Ergänzen Sie den Event-Listener für das Schließen-X im Dialog:
+document.getElementById('dialog-close').addEventListener('click', function() {
+    uiController.closeDialog();
+});
     document.getElementById('dialog-ok').addEventListener('click', uiController.closeDialog);
     
    // Globale Event-Delegation für Bearbeiten-Buttons
