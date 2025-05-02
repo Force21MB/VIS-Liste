@@ -29,7 +29,7 @@ const CONFIG = {
         datumtiefbauerledigt: 'datumtiefbauerledigt',
         tiefbaufirma: 'tiefbaufirma',
         mitarbeiter: 'mitarbeiter',
-        bemerkung: 'bemerkung'
+        bemerkung: 'bemerkung',
         gewerk: 'gewerk'
     }
 GEWERK_OPTIONS: [
