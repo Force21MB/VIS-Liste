@@ -367,7 +367,7 @@ main {
 .form-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 15px;
 }
 
